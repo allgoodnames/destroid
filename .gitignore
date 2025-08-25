@@ -13,5 +13,13 @@ export_presets.cfg
 .DS_Store
 Thumbs.db
 
+# Godot exports
+*.exe
+*.zip
+*.apk
+*.pck
+*.x86_64
+*.dmg
+
 # Backup files
 *~
