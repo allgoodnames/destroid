@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://txerww7307op"]
+
+[ext_resource type="Script" uid="uid://xdgs7a1tpq2e" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cq3viumo6pjew" path="res://assets/sprites/vector ship.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://qgt37upcq7t3" path="res://assets/sprites/flame.png" id="3_qlg0r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 6.08276
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 6.0
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+contact_monitor = true
+max_contacts_reported = 20
+linear_damp_mode = 1
+script = ExtResource("1_qhqgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dqkch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="Flame" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 14)
+texture = ExtResource("3_qlg0r")
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(0, -18)
+
+[node name="DangerCollider" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerCollider"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_qhqgy")
+
+[connection signal="body_entered" from="DangerCollider" to="." method="_on_danger_collider_body_entered"]

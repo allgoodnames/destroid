@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://8llyol0yj45k"]
+
+[ext_resource type="Script" uid="uid://88rv41b7ejxg" path="res://scripts/main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b6k20of8gfm6f" path="res://scenes/light_follower.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bvvqox03xflyh" path="res://main_ui.tscn" id="3_h2yge"]
+
+[sub_resource type="Curve2D" id="Curve2D_ig7tw"]
+_data = {
+"points": PackedVector2Array(-4.3923, -175.692, 4.3923, 175.692, 243, 201, 39.5307, -209.366, -39.5307, 209.366, 42, 461, -262.074, 178.62, 262.074, -178.62, 509, 635, 2.9282, 158.123, -2.9282, -158.123, 849, 204, 162.515, -43.923, -162.515, 43.923, 392, -53, 0, 0, 0, 0, 243, 201)
+}
+point_count = 6
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0xm2m"]
+gradient = SubResource("Gradient_ig7tw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.857798, 0.866973)
+
+[sub_resource type="Curve2D" id="Curve2D_0xm2m"]
+_data = {
+"points": PackedVector2Array(33, 147.4, -33, -147.4, 627, 420, 5.5, 121, -5.5, -121, 515, 214, 17.6, -145.2, -17.6, 145.2, 49, 162, 0, 0, 0, 0, 201, 515, -148.5, 26.4, 148.5, -26.4, 545, 713, 0, 0, 0, 0, 627, 420)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_1bvp3"]
+_data = {
+"points": PackedVector2Array(81.4, 35.2, -81.4, -35.2, 221, 503, -25.3, 72.6, 25.3, -72.6, 251, 327, -22, 91.3, 22, -91.3, 271, 175, 0, 0, 0, 0, 419, 70, -46.2, -59.4, 46.2, 59.4, 608, 81, 0, 0, 0, 0, 654, 216, 0, 0, 0, 0, 681, 405, 158.4, -7.7, -158.4, 7.7, 485, 568, 0, 0, 0, 0, 221, 503)
+}
+point_count = 9
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 802.0
+offset_bottom = 603.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+
+[node name="Main UI" parent="." instance=ExtResource("3_h2yge")]
+layout_mode = 1
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ig7tw")
+
+[node name="LightFollower" parent="Path2D" instance=ExtResource("2_0xm2m")]
+position = Vector2(243, 201)
+rotation = 1.5458
+
+[node name="PointLight2D" type="PointLight2D" parent="Path2D/LightFollower"]
+position = Vector2(-1.04968, 1.97438)
+rotation = -1.5458
+scale = Vector2(9.33594, 9.08594)
+color = Color(6.63, 8.84, 17.679, 0.138)
+energy = 6.79
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(4, 11.1313)
+scale = Vector2(1, 0.998413)
+curve = SubResource("Curve2D_0xm2m")
+
+[node name="LightFollower" parent="Path2D2" instance=ExtResource("2_0xm2m")]
+position = Vector2(627, 420)
+rotation = -1.79105
+
+[node name="PointLight2D2" type="PointLight2D" parent="Path2D2/LightFollower"]
+position = Vector2(15.3804, 13.691)
+rotation = 1.79105
+scale = Vector2(9.41406, 8.99219)
+color = Color(1, 3.867, 6.077, 0.453)
+energy = 6.33
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(81, -8)
+curve = SubResource("Curve2D_1bvp3")
+
+[node name="LightFollower" parent="Path2D4" instance=ExtResource("2_0xm2m")]
+position = Vector2(221, 503)
+rotation = -2.73344
+
+[node name="PointLight2D4" type="PointLight2D" parent="Path2D4/LightFollower"]
+position = Vector2(-11.436, -3.77066)
+rotation = 2.73344
+scale = Vector2(7.67188, 7.67188)
+color = Color(1, 2.209, 2.762, 0.806)
+energy = 5.04
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[connection signal="level_updated" from="." to="Main UI" method="_on_main_level_updated"]
+[connection signal="lives_updated" from="." to="Main UI" method="_on_main_lives_updated"]
+[connection signal="score_updated" from="." to="Main UI" method="_on_main_score_updated"]

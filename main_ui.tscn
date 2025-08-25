@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvvqox03xflyh"]
+
+[ext_resource type="FontFile" uid="uid://8dq3daya6tj4" path="res://assets/fonts/PixelOperator8.ttf" id="1_2ppmm"]
+[ext_resource type="Script" uid="uid://bv4gtdf0f7pbk" path="res://main_ui.gd" id="1_w37m7"]
+
+[node name="Main UI" type="Control" node_paths=PackedStringArray("score_label", "level_label")]
+light_mask = 0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w37m7")
+score_label = NodePath("Score")
+level_label = NodePath("Level")
+
+[node name="Score" type="Label" parent="."]
+light_mask = 0
+layout_mode = 1
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 93.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/font = ExtResource("1_2ppmm")
+theme_override_font_sizes/font_size = 16
+text = "Score"
+
+[node name="Level" type="Label" parent="."]
+light_mask = 0
+layout_mode = 0
+offset_left = 6.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_fonts/font = ExtResource("1_2ppmm")
+theme_override_font_sizes/font_size = 8
+text = "Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = -716.0
+offset_bottom = 21.0
+grow_horizontal = 2

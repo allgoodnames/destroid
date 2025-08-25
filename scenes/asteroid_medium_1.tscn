@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm3oiukr122it"]
+
+[ext_resource type="PackedScene" uid="uid://ci8dv5yon81xp" path="res://scenes/asteroid_base.tscn" id="1_7cdbp"]
+[ext_resource type="PackedScene" uid="uid://bt0270rh8d7c6" path="res://scenes/asteroid_small_1.tscn" id="2_42ta2"]
+[ext_resource type="Texture2D" uid="uid://do4s8cwxaxilw" path="res://assets/sprites/asteroid medium 01.png" id="2_jp3xv"]
+[ext_resource type="PackedScene" uid="uid://d0lmtiad0hi0g" path="res://scenes/asteroid_small_2.tscn" id="3_y073i"]
+
+[node name="AsteroidLarge" instance=ExtResource("1_7cdbp")]
+debris_scene1 = ExtResource("2_42ta2")
+debris_scene2 = ExtResource("3_y073i")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_jp3xv")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-6, 16, -22, 3, -9, -11, -1, -8, 5, -16, 21, -2, 14, 12)

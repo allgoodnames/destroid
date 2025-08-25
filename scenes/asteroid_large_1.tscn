@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://df5jvw0hcpdve"]
+
+[ext_resource type="PackedScene" uid="uid://ci8dv5yon81xp" path="res://scenes/asteroid_base.tscn" id="1_m8bro"]
+[ext_resource type="PackedScene" uid="uid://dm3oiukr122it" path="res://scenes/asteroid_medium_1.tscn" id="2_etfv8"]
+[ext_resource type="PackedScene" uid="uid://d3x8a0ph3cpnl" path="res://scenes/asteroid_medium_2.tscn" id="3_ldiqq"]
+
+[node name="AsteroidLarge" instance=ExtResource("1_m8bro")]
+debris_scene1 = ExtResource("2_etfv8")
+debris_scene2 = ExtResource("3_ldiqq")
+speed_multiplier = 0.5
