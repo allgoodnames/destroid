@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://do4s8cwxaxilw" path="res://assets/sprites/asteroid medium 01.png" id="2_jp3xv"]
 [ext_resource type="PackedScene" uid="uid://d0lmtiad0hi0g" path="res://scenes/asteroid_small_2.tscn" id="3_y073i"]
 
-[node name="AsteroidLarge" instance=ExtResource("1_7cdbp")]
+[node name="AsteroidMedium2" instance=ExtResource("1_7cdbp")]
 debris_scene1 = ExtResource("2_42ta2")
 debris_scene2 = ExtResource("3_y073i")
 

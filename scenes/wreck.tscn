@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6nt0d2ivuc8l"]
+
+[ext_resource type="Texture2D" uid="uid://cerynyqyre7w3" path="res://assets/sprites/shot.png" id="1_2f6vk"]
+[ext_resource type="Script" uid="uid://lxseqvbh2y1f" path="res://scripts/wreck.gd" id="2_hyq3p"]
+
+[node name="Wreck" type="Sprite2D"]
+texture = ExtResource("1_2f6vk")
+script = ExtResource("2_hyq3p")

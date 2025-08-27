@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://880plpa6n1sq"]
+
+[ext_resource type="Texture2D" uid="uid://cbb2lb4e01l8i" path="res://assets/sprites/right_wing.png" id="1_qafek"]
+
+[node name="RightWing" type="Sprite2D"]
+texture = ExtResource("1_qafek")

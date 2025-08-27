@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2gn5yk6ua6oo"]
+
+[ext_resource type="Texture2D" uid="uid://dy11x4ddjuxac" path="res://assets/sprites/cone.png" id="1_04qlx"]
+
+[node name="Cone" type="Sprite2D"]
+texture = ExtResource("1_04qlx")

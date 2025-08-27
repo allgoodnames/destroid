@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dm3oiukr122it" path="res://scenes/asteroid_medium_1.tscn" id="2_etfv8"]
 [ext_resource type="PackedScene" uid="uid://d3x8a0ph3cpnl" path="res://scenes/asteroid_medium_2.tscn" id="3_ldiqq"]
 
-[node name="AsteroidLarge" instance=ExtResource("1_m8bro")]
+[node name="AsteroidLarge1" instance=ExtResource("1_m8bro")]
 debris_scene1 = ExtResource("2_etfv8")
 debris_scene2 = ExtResource("3_ldiqq")
 speed_multiplier = 0.5
+graze_points = 25
+graze_energy = 1.0

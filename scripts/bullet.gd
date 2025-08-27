@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 500;
+const SPEED = 1000;
 const LIFETIME = 2.0
 
 # Called when the node enters the scene tree for the first time.

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfkbsma1p0s17"]
+
+[ext_resource type="Texture2D" uid="uid://drcu24r2k7m3d" path="res://assets/sprites/left_wing.png" id="1_n5ga3"]
+
+[node name="LeftWing" type="Sprite2D"]
+texture = ExtResource("1_n5ga3")

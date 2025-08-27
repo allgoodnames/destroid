@@ -3,8 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://ci8dv5yon81xp" path="res://scenes/asteroid_base.tscn" id="1_4sbkg"]
 [ext_resource type="Texture2D" uid="uid://hghy278tamal" path="res://assets/sprites/asteroid small 01.png" id="2_8rjvn"]
 
-[node name="AsteroidLarge" instance=ExtResource("1_4sbkg")]
+[node name="AsteroidSmall1" instance=ExtResource("1_4sbkg")]
+debris_scene1 = null
+debris_scene2 = null
 speed_multiplier = 1.5
+graze_points = 500
+graze_energy = 3.5
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_8rjvn")

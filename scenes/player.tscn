@@ -1,14 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://txerww7307op"]
+[gd_scene load_steps=13 format=3 uid="uid://txerww7307op"]
 
 [ext_resource type="Script" uid="uid://xdgs7a1tpq2e" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cq3viumo6pjew" path="res://assets/sprites/vector ship.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://qgt37upcq7t3" path="res://assets/sprites/flame.png" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://bwf14uhs87rmo" path="res://scripts/ship_piece_container.gd" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://c2gn5yk6ua6oo" path="res://scenes/cone.tscn" id="5_fjrip"]
+[ext_resource type="PackedScene" uid="uid://bfkbsma1p0s17" path="res://scenes/left_wing.tscn" id="6_smehm"]
+[ext_resource type="PackedScene" uid="uid://880plpa6n1sq" path="res://scenes/right_wing.tscn" id="7_ur7pv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 6.08276
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 21.0238
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+offsets = PackedFloat32Array(0.357843, 0.598039, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.496183, 0.496183, 0.496183, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
+gradient = SubResource("Gradient_ig7tw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.747863, 0.730769)
 
 [node name="Player" type="RigidBody2D"]
 collision_layer = 0
@@ -22,6 +39,7 @@ script = ExtResource("1_qhqgy")
 texture = ExtResource("2_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_0xm2m")
 
@@ -40,4 +58,26 @@ collision_mask = 2
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_qhqgy")
 
+[node name="GraceCollider" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GraceCollider"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_dqkch")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(1, 0.974)
+color = Color(40.331, 48.066, 56.906, 0.227)
+energy = 0.0
+texture = SubResource("GradientTexture2D_qhqgy")
+
+[node name="ShipPieceContainer" type="Node2D" parent="."]
+script = ExtResource("4_dqkch")
+piece_scenes = Array[PackedScene]([ExtResource("5_fjrip"), ExtResource("6_smehm"), ExtResource("7_ur7pv")])
+final_positions = Array[Vector2]([Vector2(0, -4), Vector2(-3, 4), Vector2(3, 4)])
+final_rotations = Array[float]([0.0, 0.0, 0.0])
+duration = 2.0
+
 [connection signal="body_entered" from="DangerCollider" to="." method="_on_danger_collider_body_entered"]
+[connection signal="body_entered" from="GraceCollider" to="." method="_on_grace_collider_body_entered"]
