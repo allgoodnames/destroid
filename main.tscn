@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8llyol0yj45k"]
+[gd_scene format=3 uid="uid://8llyol0yj45k"]
 
 [ext_resource type="Script" uid="uid://88rv41b7ejxg" path="res://scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://b6k20of8gfm6f" path="res://scenes/light_follower.tscn" id="2_0xm2m"]
@@ -31,7 +31,7 @@ _data = {
 }
 point_count = 9
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=2056117462]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1105058562]
 layout_mode = 0
 offset_right = 802.0
 offset_bottom = 603.0
@@ -48,17 +48,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.0110876, 0.0110876, 0.0110876, 1)
 
-[node name="Main UI" parent="." instance=ExtResource("3_h2yge")]
+[node name="Main UI" parent="." unique_id=899672484 instance=ExtResource("3_h2yge")]
 layout_mode = 1
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." unique_id=1166327]
 curve = SubResource("Curve2D_ig7tw")
 
-[node name="LightFollower" parent="Path2D" instance=ExtResource("2_0xm2m")]
+[node name="LightFollower" parent="Path2D" unique_id=252799827 instance=ExtResource("2_0xm2m")]
 position = Vector2(243, 201)
-rotation = 1.5458
+rotation = 1.5458015
 
-[node name="PointLight2D" type="PointLight2D" parent="Path2D/LightFollower"]
+[node name="PointLight2D" type="PointLight2D" parent="Path2D/LightFollower" unique_id=2029128285]
 position = Vector2(-1.04968, 1.97438)
 rotation = -1.5458
 scale = Vector2(9.33594, 9.08594)
@@ -66,32 +66,32 @@ color = Color(6.63, 8.84, 17.679, 0.138)
 energy = 6.79
 texture = SubResource("GradientTexture2D_0xm2m")
 
-[node name="Path2D2" type="Path2D" parent="."]
+[node name="Path2D2" type="Path2D" parent="." unique_id=1213645185]
 position = Vector2(4, 11.1313)
 scale = Vector2(1, 0.998413)
 curve = SubResource("Curve2D_0xm2m")
 
-[node name="LightFollower" parent="Path2D2" instance=ExtResource("2_0xm2m")]
+[node name="LightFollower" parent="Path2D2" unique_id=1286862351 instance=ExtResource("2_0xm2m")]
 position = Vector2(627, 420)
-rotation = -1.79105
+rotation = -1.7910451
 
-[node name="PointLight2D2" type="PointLight2D" parent="Path2D2/LightFollower"]
+[node name="PointLight2D2" type="PointLight2D" parent="Path2D2/LightFollower" unique_id=682918021]
 position = Vector2(15.3804, 13.691)
 rotation = 1.79105
 scale = Vector2(9.41406, 8.99219)
-color = Color(1, 3.867, 6.077, 0.453)
+color = Color(1, 3.867, 6.077, 0.58)
 energy = 6.33
 texture = SubResource("GradientTexture2D_0xm2m")
 
-[node name="Path2D4" type="Path2D" parent="."]
+[node name="Path2D4" type="Path2D" parent="." unique_id=1150329824]
 position = Vector2(81, -8)
 curve = SubResource("Curve2D_1bvp3")
 
-[node name="LightFollower" parent="Path2D4" instance=ExtResource("2_0xm2m")]
+[node name="LightFollower" parent="Path2D4" unique_id=179106446 instance=ExtResource("2_0xm2m")]
 position = Vector2(221, 503)
-rotation = -2.73344
+rotation = -2.7334435
 
-[node name="PointLight2D4" type="PointLight2D" parent="Path2D4/LightFollower"]
+[node name="PointLight2D4" type="PointLight2D" parent="Path2D4/LightFollower" unique_id=1410569295]
 position = Vector2(-11.436, -3.77066)
 rotation = 2.73344
 scale = Vector2(7.67188, 7.67188)

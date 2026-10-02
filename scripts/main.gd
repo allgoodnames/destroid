@@ -4,7 +4,7 @@ class_name Main
 
 static var instance: Main  # global reference
 
-const INITIAL_LEVEL = 1;
+const INITIAL_LEVEL = 3;
 const INITIAL_LIVES = 3;
 const ONE_UP_PER_SCORE = 10000;
 
